@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Simple Chatbot</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .chat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            width: 400px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            margin-top: 10px;
+        }
+        .reply {
+            margin-top: 20px;
+            background: #e6f3ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-box">
+        <h2>Chat with Bot</h2>
+        <form method="POST" action="/get">
+            <input type="text" name="user_input" placeholder="Say something..." required>
+            <input type="submit" value="Send">
+        </form>
+
+        {% if reply %}
+        <div class="reply">
+            <p><strong>You:</strong> {{ user_input }}</p>
+            <p><strong>Bot:</strong> {{ reply }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
